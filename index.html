@@ -122,6 +122,52 @@
     footer{
       padding:40px 18px;text-align:center;color:#a26b6b;font-size:.9rem;
     }
+
+    /* ---- モバイル最適化パッチ（スマホで見やすく）---- */
+
+    /* iOSの縦組み化を防止（横書きを明示） */
+    body, h1, h2, .h2, p, a, .chip, .tag, .logo, .btn, .btn-ghost, .sec-title {
+      writing-mode: horizontal-tb;
+      text-orientation: mixed;
+      word-break: keep-all;
+    }
+
+    /* ナビは横スクロール可能に */
+    .nav-wrap {
+      gap: 8px;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+    }
+    .nav-wrap::-webkit-scrollbar { display: none; }
+    .nav a, .logo { white-space: nowrap; }
+
+    @media (max-width: 640px) {
+      html, body { font-size: 16px; line-height: 1.8; }
+
+      .hero { margin: 16px auto 8px; padding: 0 12px; }
+      .hero-inner { padding: 20px 16px; }
+      h1 { font-size: 24px; margin: 8px 0; }
+      .lead { font-size: 0.95rem; }
+
+      .cta { flex-direction: column; gap: 8px; }
+      .btn, .btn-ghost { width: 100%; text-align: center; padding: 12px 14px; }
+
+      section { margin: 22px auto; padding: 0 12px; }
+
+      .timeline { margin-top: 6px; }
+      .tl { padding-left: 18px; margin: 14px 0; }
+      .tl:before { left: 6px; }
+      .dot { left: -2px; top: 6px; width: 12px; height: 12px; }
+
+      .grid { grid-template-columns: 1fr; gap: 14px; }
+      .thumb { aspect-ratio: 16 / 9; }
+      .card-body { padding: 12px; }
+      .card h3 { font-size: 1.02rem; }
+
+      .sec-title { font-size: 0.95rem; }
+      .h2 { font-size: 1.15rem; }
+    }
   </style>
 </head>
 <body>
@@ -191,6 +237,48 @@
     <div class="h2">行きたい場所リスト</div>
 
     <div class="grid">
-      <div class="card"><div class="thumb"></div><div class="card-body"><h3>鼎泰豊（小籠包）</h3><p>
+      <div class="card">
+        <div class="thumb" style="background-image:url('images/xiaolongbao.jpg')"></div>
+        <div class="card-body">
+          <h3>鼎泰豊（小籠包）</h3>
+          <p>朝・昼どちらでもOK。混雑は早め回避。</p>
+          <a target="_blank" href="https://maps.app.goo.gl/">マップで開く →</a>
+        </div>
+      </div>
 
-      
+      <div class="card">
+        <div class="thumb" style="background-image:url('images/jiufen.jpg')"></div>
+        <div class="card-body">
+          <h3>九份老街</h3>
+          <p>夕暮れ〜夜景がベスト。雨具あると安心。</p>
+          <a target="_blank" href="https://maps.app.goo.gl/">マップで開く →</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="thumb" style="background-image:url('images/nightmarket.jpg')"></div>
+        <div class="card-body">
+          <h3>士林夜市</h3>
+          <p>胡椒餅・からあげ・ジュース系をつまみ歩き。</p>
+          <a target="_blank" href="https://maps.app.goo.gl/">マップで開く →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- メモ -->
+  <section id="tips">
+    <div class="sec-title">NOTES</div>
+    <div class="h2">持ち物 & ルール</div>
+    <div class="grid">
+      <div class="card"><div class="card-body"><h3>お金</h3><p>1日上限 <strong>¥10,000</strong>。屋台は現金多め。交通はIC/現金どちらもOK。</p></div></div>
+      <div class="card"><div class="card-body"><h3>通信</h3><p>eSIM 3日分 or 空港SIM。QRを事前保存しておくと楽。</p></div></div>
+      <div class="card"><div class="card-body"><h3>雑メモ</h3><p>夜市は22:00過ぎても賑やか。朝の鼎泰豊は並び少なめ。</p></div></div>
+    </div>
+  </section>
+
+  <footer>
+    <div>© 2025 Taiwan Trip / kokoromairudo-beep</div>
+  </footer>
+</body>
+</html>
