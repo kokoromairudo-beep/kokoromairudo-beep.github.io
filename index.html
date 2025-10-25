@@ -4,12 +4,12 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <meta name="theme-color" content="#ffdce4" />
-  <title>台湾旅行しおり | 11/14-16</title>
+  <title>台湾旅行しおり | 11/14–16</title>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800&family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
 
   <style>
-    /* ====== Theme (pink / mobile-first) ====== */
+    /* ===== Theme (pink / mobile-first) ===== */
     :root{
       --bg:#fff5f7;          /* 背景 */
       --card:#ffeef2;        /* カード */
@@ -20,17 +20,17 @@
       --line:rgba(0,0,0,.06);
       --shadow:0 10px 22px rgba(245,138,160,.18);
       --radius:18px;
-      --maxw:520px;          /* 画面幅（デスクトップでは中央にスマホ幅で表示） */
+      --maxw:520px;          /* PCで見た時の最大幅（スマホ幅で中央表示） */
     }
 
-    /* ====== Reset / Base ====== */
+    /* ===== Reset / Base ===== */
     *{box-sizing:border-box;min-width:0}
     html{scroll-behavior:smooth}
     html,body{margin:0;padding:0;background:var(--bg);color:var(--ink)}
     body{font-family:"Noto Sans JP","Outfit",system-ui,-apple-system,sans-serif;line-height:1.8}
     a{color:inherit}
 
-    /* ====== Frame: スマホ幅センタリング（PCで見た時） ====== */
+    /* ===== Frame: スマホ幅センタリング（PC時） ===== */
     .frame{
       margin:auto;min-height:100svh;background:var(--bg);
       max-width:var(--maxw);
@@ -38,24 +38,30 @@
       border-right:1px solid var(--line);
     }
 
-    /* ====== Top Nav (タブ風) ====== */
+    /* ===== Top Nav（ブランド＋タブを2段に） ===== */
     .top{
       position:sticky;top:0;z-index:50;
       background:rgba(255,255,255,.75);
       backdrop-filter:blur(12px);
       border-bottom:1px solid var(--line);
-      padding:env(safe-area-inset-top) 12px 8px;
+      padding:env(safe-area-inset-top) 10px 8px;
     }
-    .brand{display:flex;align-items:center;gap:8px;font-weight:800;color:#d7678a}
-    .tabs{display:flex;gap:10px;overflow-x:auto;padding:10px 2px 2px}
+    .brand-wrap{display:flex;flex-direction:column;align-items:flex-start;gap:6px;padding:0 12px}
+    .brand{
+      display:flex;align-items:center;gap:8px;
+      font-weight:800;color:#d7678a;
+      font-size:1.25rem; /* 見出しを少し大きく */
+      line-height:1.2;
+    }
+    .tabs{display:flex;gap:8px;flex-wrap:wrap;padding:6px 0 2px}
     .tabs a{
       text-decoration:none;white-space:nowrap;
       padding:8px 12px;border-radius:999px;border:1px solid var(--line);
-      background:#fff;color:#d7678a;font-weight:700;
+      background:#fff;color:#d7678a;font-weight:700;font-size:.95rem;
     }
     .tabs a.active{background:#ffdce4;border-color:#ffc9d5}
 
-    /* ====== Section / Card ====== */
+    /* ===== Section / Card ===== */
     section{padding:16px 16px 0}
     .hero,.card{
       background:linear-gradient(180deg,#fff 0%, #fff6f8 100%);
@@ -66,7 +72,6 @@
     .chip{display:inline-flex;gap:8px;align-items:center;background:#ffe1e9;border:1px solid #ffd0da;color:#b24d6a;border-radius:999px;padding:6px 10px;font-weight:700}
     h1{font-size: clamp(22px, 6.2vw, 28px);margin:10px 0 6px;color:#d4547e;line-height:1.3}
     .lead{color:var(--muted);font-size:.98rem}
-
     .cta{display:flex;flex-direction:column;gap:10px;margin-top:14px}
     .btn{
       text-decoration:none;text-align:center;padding:14px 16px;border-radius:14px;
@@ -78,7 +83,18 @@
     .sec-kicker{color:#d7678a;font-weight:800;margin:14px 4px 4px;font-size:.92rem}
     .sec-title{font-size:1.15rem;font-weight:800;margin:0 4px 10px}
 
-    /* ====== Timeline ====== */
+    /* ===== Flight summary ===== */
+    .flight{display:grid;gap:10px;margin:12px 0 6px}
+    .flight .leg{
+      background:#fff;border:1px solid #ffd6e1;border-radius:14px;padding:10px 12px;
+      box-shadow:0 6px 16px rgba(245,138,160,.10);
+    }
+    .flight .leg-head{font-weight:800;color:#d4547e;margin-bottom:4px}
+    .flight .leg-body .time{font-weight:700}
+    .flight .leg-body .route,.flight .leg-body .air,.flight .leg-body .arrive{color:#8a6a6a;font-size:.95rem;line-height:1.6}
+    @media (min-width:520px){ .flight{grid-template-columns:1fr 1fr} }
+
+    /* ===== Timeline ===== */
     .tl{position:relative;margin:10px 0;padding-left:18px}
     .tl:before{content:"";position:absolute;left:8px;top:0;bottom:0;width:2px;background:linear-gradient(#f58aa0,transparent)}
     .dot{position:absolute;left:2px;top:4px;width:14px;height:14px;border-radius:999px;background:#f58aa0;box-shadow:0 0 0 6px rgba(245,138,160,.15)}
@@ -86,14 +102,14 @@
     .tags{display:flex;flex-wrap:wrap;gap:8px;margin:6px 0 2px}
     .tag{font-size:.85rem;padding:6px 10px;border:1px solid #ffd0da;border-radius:999px;background:#fff;color:#b24d6a}
 
-    /* ====== Spots Grid（基本1列 / 幅広のみ2列） ====== */
+    /* ===== Spots Grid ===== */
     .grid{display:grid;gap:12px}
     @media (min-width:620px){ .grid{grid-template-columns:1fr 1fr} }
     .thumb{aspect-ratio:16/10;background:#fde6eb url('images/placeholder.jpg') center/cover no-repeat;border-radius:14px;border:1px solid #ffd6e1}
     .card h3{margin:.4rem 0;color:#d4547e}
     .muted{color:var(--muted)}
 
-    /* ====== Bottom Nav ====== */
+    /* ===== Bottom Nav ===== */
     .bottom{
       position:sticky;bottom:0;z-index:60;margin-top:18px;
       background:rgba(255,255,255,.85);backdrop-filter:blur(12px);
@@ -102,38 +118,58 @@
     .bottom .row{display:flex;gap:10px}
     .bottom a{flex:1;text-align:center;text-decoration:none;font-weight:800;color:#d7678a;background:#fff;border:1px solid #ffd0da;border-radius:12px;padding:12px}
 
-    /* ====== Safety: はみ出し防止 ====== */
+    /* ===== Safety / Overflow ===== */
     h1,h2,p,a,small,strong,.lead{overflow-wrap:anywhere;word-break:break-word}
     img,video,iframe{max-width:100%;height:auto;display:block}
     .card,.hero{overflow:hidden}
 
-    /* ====== Anchor offset（見出しが隠れない） ====== */
+    /* ===== Anchor offset（見出しが隠れない） ===== */
     #plan,#spots,#notes{scroll-margin-top:82px}
   </style>
 </head>
 <body>
   <div class="frame">
     <!-- Top (brand + tabs) -->
-<div class="top">
-  <div class="brand-wrap">
-    <div class="brand">🇹🇼 <span>Taiwan Trip 11/15–17</span></div>
-
-    <div class="tabs">
-      <a href="#plan" class="active">日程</a>
-      <a href="#spots">スポット</a>
-      <a href="#notes">メモ</a>
+    <div class="top">
+      <div class="brand-wrap">
+        <div class="brand">🇹🇼 <span>Taiwan Trip 11/14–16</span></div>
+        <div class="tabs">
+          <a href="#plan" class="active">日程</a>
+          <a href="#spots">スポット</a>
+          <a href="#notes">メモ</a>
+        </div>
+      </div>
     </div>
-  </div>
-</div>
-
-
 
     <!-- Hero -->
     <section>
       <div class="hero">
         <span class="chip">🍜 美食さんぽ旅</span>
-        <h1>台北&九份 2泊3日 しおり</h1>
-        <p class="lead">11/15 夜到着 → 夜市、小籠包モーニング、九份で夕景。移動リンク・地図・費用メモをひとまとめに。</p>
+        <h1>台北&九份 2泊3日 しおり（11/14–16）</h1>
+        <p class="lead">11/14 夜到着 → 夜市、小籠包モーニング、九份で夕景。移動リンク・地図・費用メモをひとまとめに。</p>
+
+        <!-- flight summary -->
+        <div class="flight">
+          <div class="leg">
+            <div class="leg-head">往路 ✈︎</div>
+            <div class="leg-body">
+              <div class="time">11/14（金）10:30 発</div>
+              <div class="route">HND → TPE（羽田 → 台北桃園）</div>
+              <div class="air">JX 801（スターラックス）</div>
+              <div class="arrive">現地 13:20 着</div>
+            </div>
+          </div>
+          <div class="leg">
+            <div class="leg-head">復路 ✈︎</div>
+            <div class="leg-body">
+              <div class="time">11/16（日）18:45 発</div>
+              <div class="route">TPE → HND（台北桃園 → 羽田）</div>
+              <div class="air">JX 802</div>
+              <div class="arrive">日本 22:30 着</div>
+            </div>
+          </div>
+        </div>
+
         <div class="cta">
           <a class="btn primary" href="#plan">日程を見る</a>
           <a class="btn ghost" href="#spots">おすすめスポット</a>
@@ -149,16 +185,16 @@
       <div class="tl">
         <span class="dot"></span>
         <div class="card">
-          <strong>1日目｜台北到着 → 夜市</strong>
+          <strong>1日目（11/14）｜台北到着 → 夜市</strong>
           <div class="tags"><span class="tag">士林夜市</span><span class="tag">胡椒餅</span><span class="tag">小籠包</span></div>
-          <p class="muted">20:00 台北着 → ホテル → 士林夜市で食べ歩き。友だち希望：ほろほろ肉系小籠包を最優先で。</p>
+          <p class="muted">夜に台北着 → ホテル → 士林夜市で食べ歩き。友だち希望：ほろほろ肉系小籠包を最優先で。</p>
         </div>
       </div>
 
       <div class="tl">
         <span class="dot"></span>
         <div class="card">
-          <strong>2日目｜九份へ日帰り</strong>
+          <strong>2日目（11/15）｜九份へ日帰り</strong>
           <div class="tags"><span class="tag">赤提灯</span><span class="tag">阿妹茶樓</span><span class="tag">夕景</span></div>
           <p class="muted">午後〜夕方に九份。台北→瑞芳（電車）→バス／タクシーで九份老街。</p>
         </div>
@@ -167,7 +203,7 @@
       <div class="tl">
         <span class="dot"></span>
         <div class="card">
-          <strong>3日目｜帰国前モーニング</strong>
+          <strong>3日目（11/16）｜帰国前モーニング → 空港へ</strong>
           <div class="tags"><span class="tag">鼎泰豊</span><span class="tag">空港へ</span></div>
           <p class="muted">朝は小籠包モーニング。時間次第でお土産スポットに立寄り。</p>
         </div>
