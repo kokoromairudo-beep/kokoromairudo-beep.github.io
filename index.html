@@ -1,19 +1,19 @@
 <!doctype html>
 <html lang="ja">
 <head>
-  <meta name="theme-color" content="#fff5f6">
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>台湾旅行しおり | 11/15-17</title>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=Noto+Sans+JP:wght@300;400;700&display=swap" rel="stylesheet">
+
   <style>
     :root{
-      --bg:#fff5f6;             /* 全体背景：ほんのりピンク */
-      --panel:#ffeef1;          /* カード背景：白寄りのピンク */
-      --accent:#f6a5a9;         /* ピンクアクセント */
-      --accent-2:#fbd1d6;       /* サブアクセント */
-      --text:#4a3a3a;           /* 本文 */
+      --bg:#fff5f6;
+      --panel:#ffeef1;
+      --accent:#f6a5a9;
+      --accent-2:#fbd1d6;
+      --text:#4a3a3a;
       --muted:#876c6c;
       --shadow:0 8px 18px rgba(240,100,130,0.15);
       --radius:16px;
@@ -124,76 +124,40 @@
       padding:40px 18px;text-align:center;color:#a26b6b;font-size:.9rem;
     }
 
-    /* ---- モバイル最適化パッチ（スマホで見やすく）---- */
-
-    /* iOSの縦組み化を防止（横書きを明示） */
+    /* ===== スマホ文字崩れ防止・はみ出し修正 ===== */
     body, h1, h2, .h2, p, a, .chip, .tag, .logo, .btn, .btn-ghost, .sec-title {
       writing-mode: horizontal-tb;
       text-orientation: mixed;
       word-break: keep-all;
+      overflow-wrap: anywhere;
     }
 
-    /* ナビは横スクロール可能に */
-    .nav-wrap {
-      gap: 8px;
-      overflow-x: auto;
-      -webkit-overflow-scrolling: touch;
-      scrollbar-width: none;
-    }
-    .nav-wrap::-webkit-scrollbar { display: none; }
-    .nav a, .logo { white-space: nowrap; }
+    /* ===== オーバーフロー防止パッチ ===== */
+    * { min-width: 0; }
+    .grid > *, .hero-inner, .tl-card, .card { min-width: 0; }
+    img, video, iframe { max-width: 100%; height: auto; display: block; }
+    .card, .tl-card, .hero-inner { overflow: hidden; }
 
-    @media (max-width: 640px) {
+    /* ===== スマホ時レイアウト最適化 ===== */
+    @media (max-width: 480px) {
       html, body { font-size: 16px; line-height: 1.8; }
-
-      .hero { margin: 16px auto 8px; padding: 0 12px; }
-      .hero-inner { padding: 20px 16px; }
-      h1 { font-size: 24px; margin: 8px 0; }
-      .lead { font-size: 0.95rem; }
-
-      .cta { flex-direction: column; gap: 8px; }
-      .btn, .btn-ghost { width: 100%; text-align: center; padding: 12px 14px; }
-
-      section { margin: 22px auto; padding: 0 12px; }
-
-      .timeline { margin-top: 6px; }
-      .tl { padding-left: 18px; margin: 14px 0; }
-      .tl:before { left: 6px; }
-      .dot { left: -2px; top: 6px; width: 12px; height: 12px; }
-
-      .grid { grid-template-columns: 1fr; gap: 14px; }
-      .thumb { aspect-ratio: 16 / 9; }
-      .card-body { padding: 12px; }
-      .card h3 { font-size: 1.02rem; }
-
-      .sec-title { font-size: 0.95rem; }
-      .h2 { font-size: 1.15rem; }
+      .hero { padding: 0 14px; margin: 20px auto; }
+      .hero-inner { padding: 24px 18px; }
+      .lead { font-size: 0.9rem; }
+      .cta { flex-direction: column; align-items: stretch; }
+      .cta .btn, .cta .btn-ghost {
+        width: 100%; text-align: center;
+      }
+      .tl-card { padding: 12px; }
+      .grid { grid-template-columns: 1fr; }
+      section { padding: 0 14px; }
+      h1 { font-size: 1.5rem; }
+      .nav-wrap { flex-wrap: wrap; gap: 8px; }
     }
-   /* フッター */
-  footer{
-    padding:40px 18px;text-align:center;color:#a26b6b;font-size:.9rem;
-  }
-
-/* =========================
-   SmartPhone Friendly Patch
-   ========================= */
-
-/* スクロール時に見出しが隠れない（アンカー位置補正） */
-#plan, #spots, #tips { scroll-margin-top: 76px; }
-
-/* スマホでの文字崩れ・縦組み化を防止 */
-html, body, h1, h2, .h2, p, a, .chip, .tag, .logo, .btn, .btn-ghost, .sec-title {
-  writing-mode: horizontal-tb;
-  text-orientation: mixed;
-  word-break: normal;
-}
-
-/* （中略…全部貼ってOK） */
-
-</style>
+  </style>
 </head>
-<body>
 
+<body>
   <!-- ナビ -->
   <div class="nav">
     <div class="nav-wrap">
@@ -257,50 +221,14 @@ html, body, h1, h2, .h2, p, a, .chip, .tag, .logo, .btn, .btn-ghost, .sec-title 
   <section id="spots">
     <div class="sec-title">SPOTS</div>
     <div class="h2">行きたい場所リスト</div>
-
     <div class="grid">
-      <div class="card">
-        <div class="thumb" style="background-image:url('images/xiaolongbao.jpg')"></div>
-        <div class="card-body">
-          <h3>鼎泰豊（小籠包）</h3>
-          <p>朝・昼どちらでもOK。混雑は早め回避。</p>
-          <a target="_blank" href="https://maps.app.goo.gl/">マップで開く →</a>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="thumb" style="background-image:url('images/jiufen.jpg')"></div>
-        <div class="card-body">
-          <h3>九份老街</h3>
-          <p>夕暮れ〜夜景がベスト。雨具あると安心。</p>
-          <a target="_blank" href="https://maps.app.goo.gl/">マップで開く →</a>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="thumb" style="background-image:url('images/nightmarket.jpg')"></div>
-        <div class="card-body">
-          <h3>士林夜市</h3>
-          <p>胡椒餅・からあげ・ジュース系をつまみ歩き。</p>
-          <a target="_blank" href="https://maps.app.goo.gl/">マップで開く →</a>
-        </div>
-      </div>
+      <div class="card"><div class="thumb"></div><div class="card-body"><h3>鼎泰豊（小籠包）</h3><p>朝食にもぴったりの定番小籠包。信義本店ならアクセス◎</p></div></div>
+      <div class="card"><div class="thumb"></div><div class="card-body"><h3>士林夜市</h3><p>台北最大の夜市！胡椒餅・からあげ・フルーツジュースを制覇。</p></div></div>
+      <div class="card"><div class="thumb"></div><div class="card-body"><h3>阿妹茶樓（九份）</h3><p>赤提灯が灯る絶景カフェ。夕方〜夜がベストタイム。</p></div></div>
     </div>
   </section>
 
-  <!-- メモ -->
-  <section id="tips">
-    <div class="sec-title">NOTES</div>
-    <div class="h2">持ち物 & ルール</div>
-    <div class="grid">
-      <div class="card"><div class="card-body"><h3>お金</h3><p>1日上限 <strong>¥10,000</strong>。屋台は現金多め。交通はIC/現金どちらもOK。</p></div></div>
-      <div class="card"><div class="card-body"><h3>通信</h3><p>eSIM 3日分 or 空港SIM。QRを事前保存しておくと楽。</p></div></div>
-      <div class="card"><div class="card-body"><h3>雑メモ</h3><p>夜市は22:00過ぎても賑やか。朝の鼎泰豊は並び少なめ。</p></div></div>
-    </div>
-  </section>
-
-  <footer>
-    <div>© 2025 Taiwan Trip / kokoromairudo-beep</div>
-  </footer>
+  <!-- フッター -->
+  <footer>© 2025 Taiwan Trip Shiori</footer>
 </body>
 </html>
