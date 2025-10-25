@@ -1,234 +1,238 @@
 <!doctype html>
 <html lang="ja">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#ffdce4" />
   <title>台湾旅行しおり | 11/15-17</title>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=Noto+Sans+JP:wght@300;400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800&family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
 
   <style>
+    /* ====== Theme (pink / mobile-first) ====== */
     :root{
-      --bg:#fff5f6;
-      --panel:#ffeef1;
-      --accent:#f6a5a9;
-      --accent-2:#fbd1d6;
-      --text:#4a3a3a;
-      --muted:#876c6c;
-      --shadow:0 8px 18px rgba(240,100,130,0.15);
-      --radius:16px;
+      --bg:#fff5f7;          /* 背景 */
+      --card:#ffeef2;        /* カード */
+      --ink:#4a3a3a;         /* 文字色 */
+      --muted:#8a6a6a;       /* 補助文字 */
+      --accent:#f58aa0;      /* 主要ボタン */
+      --accent-2:#ffc9d5;    /* サブ色 */
+      --line:rgba(0,0,0,.06);
+      --shadow:0 10px 22px rgba(245,138,160,.18);
+      --radius:18px;
+      --maxw:520px;          /* 画面幅（デスクトップでは中央にスマホ幅で表示） */
     }
 
-    *{box-sizing:border-box;margin:0;padding:0;}
-    html,body{
-      background:var(--bg);
-      color:var(--text);
-      font-family:"Noto Sans JP","Outfit",sans-serif;
-      line-height:1.7;
-      letter-spacing:.02em;
+    /* ====== Reset / Base ====== */
+    *{box-sizing:border-box;min-width:0}
+    html{scroll-behavior:smooth}
+    html,body{margin:0;padding:0;background:var(--bg);color:var(--ink)}
+    body{font-family:"Noto Sans JP","Outfit",system-ui,-apple-system,sans-serif;line-height:1.8}
+    a{color:inherit}
+
+    /* ====== Frame: スマホ幅センタリング（PCで見た時） ====== */
+    .frame{
+      margin:auto;min-height:100svh;background:var(--bg);
+      max-width:var(--maxw);
+      border-left:1px solid var(--line);
+      border-right:1px solid var(--line);
     }
 
-    /* ナビ */
-    .nav{
+    /* ====== Top Nav (タブ風) ====== */
+    .top{
       position:sticky;top:0;z-index:50;
-      background:rgba(255,255,255,0.75);
+      background:rgba(255,255,255,.75);
       backdrop-filter:blur(12px);
-      border-bottom:1px solid rgba(0,0,0,0.05);
-      box-shadow:0 2px 6px rgba(255,182,193,0.15);
+      border-bottom:1px solid var(--line);
+      padding:env(safe-area-inset-top) 12px 8px;
     }
-    .nav-wrap{
-      max-width:1080px;margin:auto;
-      display:flex;align-items:center;gap:14px;
-      padding:12px 18px;
+    .brand{display:flex;align-items:center;gap:8px;font-weight:800;color:#d7678a}
+    .tabs{display:flex;gap:10px;overflow-x:auto;padding:10px 2px 2px}
+    .tabs a{
+      text-decoration:none;white-space:nowrap;
+      padding:8px 12px;border-radius:999px;border:1px solid var(--line);
+      background:#fff;color:#d7678a;font-weight:700;
     }
-    .logo{font-weight:700;color:#d66c85;letter-spacing:.04em;}
-    .nav a{
-      color:var(--muted);
-      text-decoration:none;
-      font-size:.95rem;
-      padding:8px 12px;
-      border-radius:10px;
-    }
-    .nav a:hover{
-      color:#d66c85;
-      background:rgba(255,192,203,0.25);
-    }
+    .tabs a.active{background:#ffdce4;border-color:#ffc9d5}
 
-    /* ヒーロー */
-    .hero{max-width:1080px;margin:40px auto 18px;padding:26px 18px;}
-    .hero-inner{
-      border-radius:calc(var(--radius) + 4px);
-      background:linear-gradient(145deg,#ffeef1 0%,#fff9fa 100%);
-      border:1px solid #ffd8e1;
+    /* ====== Section / Card ====== */
+    section{padding:16px 16px 0}
+    .hero,.card{
+      background:linear-gradient(180deg,#fff 0%, #fff6f8 100%);
+      border:1px solid #ffd6e1;border-radius:var(--radius);
       box-shadow:var(--shadow);
-      padding:40px 30px;
     }
-    .chip{
-      display:inline-flex;align-items:center;
-      background:#fbd1d6;color:#b14a5e;
-      border-radius:999px;
-      padding:6px 12px;
-      font-weight:600;margin-bottom:10px;
-    }
-    h1{color:#d66c85;font-size:clamp(26px,5vw,38px);margin:6px 0 10px;}
-    .lead{color:#704c4c;max-width:50ch;}
-    .cta{display:flex;gap:10px;margin-top:18px;flex-wrap:wrap;}
+    .hero{padding:20px}
+    .chip{display:inline-flex;gap:8px;align-items:center;background:#ffe1e9;border:1px solid #ffd0da;color:#b24d6a;border-radius:999px;padding:6px 10px;font-weight:700}
+    h1{font-size: clamp(22px, 6.2vw, 28px);margin:10px 0 6px;color:#d4547e;line-height:1.3}
+    .lead{color:var(--muted);font-size:.98rem}
+
+    .cta{display:flex;flex-direction:column;gap:10px;margin-top:14px}
     .btn{
-      background:#f6a5a9;color:#fff;border:none;
-      padding:10px 18px;border-radius:10px;text-decoration:none;font-weight:700;
-      box-shadow:0 5px 12px rgba(240,100,130,0.3);
+      text-decoration:none;text-align:center;padding:14px 16px;border-radius:14px;
+      font-weight:800;border:1px solid transparent;
     }
-    .btn:hover{background:#f97b89;}
-    .btn-ghost{background:transparent;border:1px solid #f6a5a9;color:#d66c85;}
+    .btn.primary{background:var(--accent);color:#fff}
+    .btn.ghost{background:#fff;border-color:#ffd0da;color:#d4547e}
 
-    /* セクション */
-    section{max-width:1080px;margin:40px auto;padding:0 18px;}
-    .sec-title{color:#d66c85;font-weight:700;margin-bottom:4px;}
-    .h2{font-size:1.4rem;margin-bottom:18px;}
+    .sec-kicker{color:#d7678a;font-weight:800;margin:14px 4px 4px;font-size:.92rem}
+    .sec-title{font-size:1.15rem;font-weight:800;margin:0 4px 10px}
 
-    /* タイムライン */
-    .timeline{position:relative;margin:18px 0;}
-    .tl{position:relative;padding-left:26px;margin:16px 0;}
-    .tl:before{
-      content:"";position:absolute;left:8px;top:0;bottom:-6px;
-      width:2px;background:linear-gradient(#f6a5a9,transparent);
-    }
-    .dot{
-      position:absolute;left:0;top:4px;width:14px;height:14px;border-radius:999px;
-      background:#f6a5a9;box-shadow:0 0 0 6px rgba(246,165,169,0.15);
-    }
-    .tl-card{
-      background:var(--panel);border:1px solid #ffd8e1;border-radius:var(--radius);
-      padding:16px;box-shadow:var(--shadow);
-    }
-    .tags{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px;}
-    .tag{
-      font-size:.8rem;padding:4px 10px;border-radius:999px;
-      background:#fff;border:1px solid #fbd1d6;color:#b14a5e;
-    }
+    /* ====== Timeline ====== */
+    .tl{position:relative;margin:10px 0;padding-left:18px}
+    .tl:before{content:"";position:absolute;left:8px;top:0;bottom:0;width:2px;background:linear-gradient(#f58aa0,transparent)}
+    .dot{position:absolute;left:2px;top:4px;width:14px;height:14px;border-radius:999px;background:#f58aa0;box-shadow:0 0 0 6px rgba(245,138,160,.15)}
+    .card{padding:14px}
+    .tags{display:flex;flex-wrap:wrap;gap:8px;margin:6px 0 2px}
+    .tag{font-size:.85rem;padding:6px 10px;border:1px solid #ffd0da;border-radius:999px;background:#fff;color:#b24d6a}
 
-    /* カードグリッド */
-    .grid{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));}
-    .card{
-      background:var(--panel);border:1px solid #ffd8e1;border-radius:var(--radius);
-      overflow:hidden;box-shadow:var(--shadow);
-    }
-    .thumb{aspect-ratio:16/10;background:#fce6eb center/cover no-repeat;}
-    .card-body{padding:14px;}
-    .card h3{margin:.3rem 0;color:#d66c85;}
-    .card p{margin:.3rem 0;color:var(--muted);}
-    .card a{color:#d66c85;text-decoration:none;font-weight:600;}
+    /* ====== Spots Grid（基本1列 / 幅広のみ2列） ====== */
+    .grid{display:grid;gap:12px}
+    @media (min-width:620px){ .grid{grid-template-columns:1fr 1fr} }
+    .thumb{aspect-ratio:16/10;background:#fde6eb url('images/placeholder.jpg') center/cover no-repeat;border-radius:14px;border:1px solid #ffd6e1}
+    .card h3{margin:.4rem 0;color:#d4547e}
+    .muted{color:var(--muted)}
 
-    /* フッター */
-    footer{
-      padding:40px 18px;text-align:center;color:#a26b6b;font-size:.9rem;
+    /* ====== Bottom Nav ====== */
+    .bottom{
+      position:sticky;bottom:0;z-index:60;margin-top:18px;
+      background:rgba(255,255,255,.85);backdrop-filter:blur(12px);
+      border-top:1px solid var(--line);padding:10px 12px calc(10px + env(safe-area-inset-bottom));
     }
+    .bottom .row{display:flex;gap:10px}
+    .bottom a{flex:1;text-align:center;text-decoration:none;font-weight:800;color:#d7678a;background:#fff;border:1px solid #ffd0da;border-radius:12px;padding:12px}
 
-    /* ===== スマホ文字崩れ防止・はみ出し修正 ===== */
-    body, h1, h2, .h2, p, a, .chip, .tag, .logo, .btn, .btn-ghost, .sec-title {
-      writing-mode: horizontal-tb;
-      text-orientation: mixed;
-      word-break: keep-all;
-      overflow-wrap: anywhere;
-    }
+    /* ====== Safety: はみ出し防止 ====== */
+    h1,h2,p,a,small,strong,.lead{overflow-wrap:anywhere;word-break:break-word}
+    img,video,iframe{max-width:100%;height:auto;display:block}
+    .card,.hero{overflow:hidden}
 
-    /* ===== オーバーフロー防止パッチ ===== */
-    * { min-width: 0; }
-    .grid > *, .hero-inner, .tl-card, .card { min-width: 0; }
-    img, video, iframe { max-width: 100%; height: auto; display: block; }
-    .card, .tl-card, .hero-inner { overflow: hidden; }
-
-    /* ===== スマホ時レイアウト最適化 ===== */
-    @media (max-width: 480px) {
-      html, body { font-size: 16px; line-height: 1.8; }
-      .hero { padding: 0 14px; margin: 20px auto; }
-      .hero-inner { padding: 24px 18px; }
-      .lead { font-size: 0.9rem; }
-      .cta { flex-direction: column; align-items: stretch; }
-      .cta .btn, .cta .btn-ghost {
-        width: 100%; text-align: center;
-      }
-      .tl-card { padding: 12px; }
-      .grid { grid-template-columns: 1fr; }
-      section { padding: 0 14px; }
-      h1 { font-size: 1.5rem; }
-      .nav-wrap { flex-wrap: wrap; gap: 8px; }
-    }
+    /* ====== Anchor offset（見出しが隠れない） ====== */
+    #plan,#spots,#notes{scroll-margin-top:82px}
   </style>
 </head>
-
 <body>
-  <!-- ナビ -->
-  <div class="nav">
-    <div class="nav-wrap">
-      <div class="logo">🇹🇼 Taiwan Trip 11/15–17</div>
-      <div style="flex:1"></div>
-      <a href="#plan">日程</a>
-      <a href="#spots">スポット</a>
-      <a href="#tips">メモ</a>
-    </div>
-  </div>
-
-  <!-- ヒーロー -->
-  <header class="hero">
-    <div class="hero-inner">
-      <span class="chip">🍜 美食さんぽ旅</span>
-      <h1>台北&九份 2泊3日 しおり</h1>
-      <p class="lead">11/15 夜到着 → 夜市、小籠包モーニング、九份で夕景。移動リンク・地図・費用メモをひとまとめに。</p>
-      <div class="cta">
-        <a class="btn" href="#plan">日程を見る</a>
-        <a class="btn btn-ghost" href="#spots">おすすめスポット</a>
+  <div class="frame">
+    <!-- Top (brand + tabs) -->
+    <div class="top">
+      <div class="brand">🇹🇼 <span>Taiwan Trip 11/15–17</span></div>
+      <div class="tabs">
+        <a href="#plan" class="active">日程</a>
+        <a href="#spots">スポット</a>
+        <a href="#notes">メモ</a>
       </div>
     </div>
-  </header>
 
-  <!-- 日程 -->
-  <section id="plan">
-    <div class="sec-title">SCHEDULE</div>
-    <div class="h2">旅のスケジュール</div>
+    <!-- Hero -->
+    <section>
+      <div class="hero">
+        <span class="chip">🍜 美食さんぽ旅</span>
+        <h1>台北&九份 2泊3日 しおり</h1>
+        <p class="lead">11/15 夜到着 → 夜市、小籠包モーニング、九份で夕景。移動リンク・地図・費用メモをひとまとめに。</p>
+        <div class="cta">
+          <a class="btn primary" href="#plan">日程を見る</a>
+          <a class="btn ghost" href="#spots">おすすめスポット</a>
+        </div>
+      </div>
+    </section>
 
-    <div class="timeline">
+    <!-- Schedule -->
+    <section id="plan">
+      <div class="sec-kicker">SCHEDULE</div>
+      <h2 class="sec-title">旅のスケジュール</h2>
+
       <div class="tl">
         <span class="dot"></span>
-        <div class="tl-card">
+        <div class="card">
           <strong>1日目｜台北到着 → 夜市</strong>
           <div class="tags"><span class="tag">士林夜市</span><span class="tag">胡椒餅</span><span class="tag">小籠包</span></div>
-          <p>20:00 台北着 → ホテル → 士林夜市で食べ歩き。友だち希望：ほろほろ肉系小籠包を最優先で。</p>
+          <p class="muted">20:00 台北着 → ホテル → 士林夜市で食べ歩き。友だち希望：ほろほろ肉系小籠包を最優先で。</p>
         </div>
       </div>
 
       <div class="tl">
         <span class="dot"></span>
-        <div class="tl-card">
+        <div class="card">
           <strong>2日目｜九份へ日帰り</strong>
           <div class="tags"><span class="tag">赤提灯</span><span class="tag">阿妹茶樓</span><span class="tag">夕景</span></div>
-          <p>午後〜夕方に九份。台北→瑞芳（電車）→バス／タクシーで九份老街。</p>
+          <p class="muted">午後〜夕方に九份。台北→瑞芳（電車）→バス／タクシーで九份老街。</p>
         </div>
       </div>
 
       <div class="tl">
         <span class="dot"></span>
-        <div class="tl-card">
+        <div class="card">
           <strong>3日目｜帰国前モーニング</strong>
           <div class="tags"><span class="tag">鼎泰豊</span><span class="tag">空港へ</span></div>
-          <p>朝は小籠包モーニング。時間次第でお土産スポットに立寄り。</p>
+          <p class="muted">朝は小籠包モーニング。時間次第でお土産スポットに立寄り。</p>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- スポット -->
-  <section id="spots">
-    <div class="sec-title">SPOTS</div>
-    <div class="h2">行きたい場所リスト</div>
-    <div class="grid">
-      <div class="card"><div class="thumb"></div><div class="card-body"><h3>鼎泰豊（小籠包）</h3><p>朝食にもぴったりの定番小籠包。信義本店ならアクセス◎</p></div></div>
-      <div class="card"><div class="thumb"></div><div class="card-body"><h3>士林夜市</h3><p>台北最大の夜市！胡椒餅・からあげ・フルーツジュースを制覇。</p></div></div>
-      <div class="card"><div class="thumb"></div><div class="card-body"><h3>阿妹茶樓（九份）</h3><p>赤提灯が灯る絶景カフェ。夕方〜夜がベストタイム。</p></div></div>
-    </div>
-  </section>
+    <!-- Spots -->
+    <section id="spots">
+      <div class="sec-kicker">SPOTS</div>
+      <h2 class="sec-title">行きたい場所リスト</h2>
 
-  <!-- フッター -->
-  <footer>© 2025 Taiwan Trip Shiori</footer>
+      <div class="grid">
+        <div class="card">
+          <div class="thumb" style="background-image:url('images/xiaolongbao.jpg')"></div>
+          <div style="padding:12px">
+            <h3>鼎泰豊（小籠包）</h3>
+            <p class="muted">朝・昼どちらでもOK。混雑は早め回避。</p>
+            <a class="btn ghost" style="display:block;margin-top:6px" target="_blank" href="https://maps.app.goo.gl/">マップで開く</a>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="thumb" style="background-image:url('images/jiufen.jpg')"></div>
+          <div style="padding:12px">
+            <h3>九份老街</h3>
+            <p class="muted">夕暮れ〜夜景がベスト。雨具あると安心。</p>
+            <a class="btn ghost" style="display:block;margin-top:6px" target="_blank" href="https://maps.app.goo.gl/">マップで開く</a>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="thumb" style="background-image:url('images/nightmarket.jpg')"></div>
+          <div style="padding:12px">
+            <h3>士林夜市</h3>
+            <p class="muted">胡椒餅・からあげ・ジュース系をつまみ歩き。</p>
+            <a class="btn ghost" style="display:block;margin-top:6px" target="_blank" href="https://maps.app.goo.gl/">マップで開く</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Notes -->
+    <section id="notes">
+      <div class="sec-kicker">NOTES</div>
+      <h2 class="sec-title">持ち物 & メモ</h2>
+
+      <div class="grid">
+        <div class="card" style="padding:14px">
+          <h3>お金</h3>
+          <p class="muted">1日上限 <strong>¥10,000</strong>。屋台は現金多め。交通はIC/現金どちらもOK。</p>
+        </div>
+        <div class="card" style="padding:14px">
+          <h3>通信</h3>
+          <p class="muted">eSIM 3日分 or 空港SIM。QRを事前保存しておくとラク。</p>
+        </div>
+        <div class="card" style="padding:14px">
+          <h3>雑メモ</h3>
+          <p class="muted">夜市は22:00過ぎても賑やか。朝の鼎泰豊は並び少なめ。</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Bottom Nav -->
+    <div class="bottom">
+      <div class="row">
+        <a href="#plan">日程</a>
+        <a href="#spots">スポット</a>
+        <a href="#notes">メモ</a>
+      </div>
+    </div>
+  </div>
 </body>
 </html>
