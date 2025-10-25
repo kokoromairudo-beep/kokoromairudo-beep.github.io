@@ -124,7 +124,7 @@
     .card,.hero{overflow:hidden}
 
     /* ===== Anchor offset（見出しが隠れない） ===== */
-    #plan,#spots,#notes{scroll-margin-top:82px}
+    #plan,#spots,#notes,#hotel{scroll-margin-top:82px}
   /* ===== Packing list ===== */
 .packing-list{
   list-style:none;
@@ -185,7 +185,7 @@
 
         <div class="cta">
           <a class="btn primary" href="#plan">日程を見る</a>
-          <a class="btn ghost" href="#spots">おすすめスポット</a>
+          <a class="btn ghost" href="#spots">行きたいスポット</a>
         </div>
       </div>
     </section>
@@ -269,6 +269,50 @@
     </div>
   </div>
 </section>
+    <!-- Hotel -->
+<section id="hotel">
+  <div class="sec-kicker">HOTEL</div>
+  <h2 class="sec-title">ホテル情報</h2>
+
+  <div class="grid">
+    <div class="card">
+      <!-- 画像を使う場合（無ければこのdivごと削除してOK） -->
+      <div class="thumb" style="background-image:url('images/hotel.jpg')"></div>
+
+      <div style="padding:12px">
+        <h3>ホテル名（例：Hotel Midtown Taipei）</h3>
+        <p class="muted">
+          📍 住所：台北市○○区○○路 12-3<br>
+          ☎️ 電話：<a href="tel:+886-2-1234-5678">+886-2-1234-5678</a><br>
+          🕒 チェックイン：15:00 / チェックアウト：11:00<br>
+          👤 予約名：山田 太郎（2名・禁煙）
+        </p>
+
+        <!-- Googleマップ（住所やホテル名を差し替え） -->
+        <a class="btn ghost" style="display:block;margin-top:6px"
+           href="https://www.google.com/maps/search/?api=1&query=Hotel+Midtown+Taipei"
+           target="_blank" rel="noopener">マップで開く</a>
+
+        <!-- 公式サイトなど任意 -->
+        <a class="btn primary" style="display:block;margin-top:8px"
+           href="https://example.com" target="_blank" rel="noopener">公式サイトへ</a>
+      </div>
+    </div>
+
+    <!-- 2軒目があれば複製してここに追加 -->
+    <!--
+    <div class="card">
+      <div class="thumb" style="background-image:url('images/hotel2.jpg')"></div>
+      <div style="padding:12px">
+        <h3>別ホテル名</h3>
+        <p class="muted">…同様に情報…</p>
+        <a class="btn ghost" ...>マップで開く</a>
+      </div>
+    </div>
+    -->
+  </div>
+</section>
+
 
     <!-- Notes -->
     <section id="notes">
@@ -320,3 +364,4 @@
   </div>
 </body>
 </html>
+
