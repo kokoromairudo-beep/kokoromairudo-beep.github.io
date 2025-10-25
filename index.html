@@ -54,9 +54,7 @@
     }
 
     /* ヒーロー */
-    .hero{
-      max-width:1080px;margin:40px auto 18px;padding:26px 18px;
-    }
+    .hero{max-width:1080px;margin:40px auto 18px;padding:26px 18px;}
     .hero-inner{
       border-radius:calc(var(--radius) + 4px);
       background:linear-gradient(145deg,#ffeef1 0%,#fff9fa 100%);
@@ -69,32 +67,18 @@
       background:#fbd1d6;color:#b14a5e;
       border-radius:999px;
       padding:6px 12px;
-      font-weight:600;
-      margin-bottom:10px;
+      font-weight:600;margin-bottom:10px;
     }
-    h1{
-      color:#d66c85;
-      font-size:clamp(26px,5vw,38px);
-      margin:6px 0 10px;
-    }
+    h1{color:#d66c85;font-size:clamp(26px,5vw,38px);margin:6px 0 10px;}
     .lead{color:#704c4c;max-width:50ch;}
     .cta{display:flex;gap:10px;margin-top:18px;flex-wrap:wrap;}
     .btn{
-      background:#f6a5a9;
-      color:#fff;
-      border:none;
-      padding:10px 18px;
-      border-radius:10px;
-      text-decoration:none;
-      font-weight:700;
+      background:#f6a5a9;color:#fff;border:none;
+      padding:10px 18px;border-radius:10px;text-decoration:none;font-weight:700;
       box-shadow:0 5px 12px rgba(240,100,130,0.3);
     }
     .btn:hover{background:#f97b89;}
-    .btn-ghost{
-      background:transparent;
-      border:1px solid #f6a5a9;
-      color:#d66c85;
-    }
+    .btn-ghost{background:transparent;border:1px solid #f6a5a9;color:#d66c85;}
 
     /* セクション */
     section{max-width:1080px;margin:40px auto;padding:0 18px;}
@@ -109,36 +93,24 @@
       width:2px;background:linear-gradient(#f6a5a9,transparent);
     }
     .dot{
-      position:absolute;left:0;top:4px;
-      width:14px;height:14px;border-radius:999px;
-      background:#f6a5a9;
-      box-shadow:0 0 0 6px rgba(246,165,169,0.15);
+      position:absolute;left:0;top:4px;width:14px;height:14px;border-radius:999px;
+      background:#f6a5a9;box-shadow:0 0 0 6px rgba(246,165,169,0.15);
     }
     .tl-card{
-      background:var(--panel);
-      border:1px solid #ffd8e1;
-      border-radius:var(--radius);
-      padding:16px;
-      box-shadow:var(--shadow);
+      background:var(--panel);border:1px solid #ffd8e1;border-radius:var(--radius);
+      padding:16px;box-shadow:var(--shadow);
     }
     .tags{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px;}
     .tag{
-      font-size:.8rem;
-      padding:4px 10px;
-      border-radius:999px;
-      background:#fff;
-      border:1px solid #fbd1d6;
-      color:#b14a5e;
+      font-size:.8rem;padding:4px 10px;border-radius:999px;
+      background:#fff;border:1px solid #fbd1d6;color:#b14a5e;
     }
 
     /* カードグリッド */
     .grid{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));}
     .card{
-      background:var(--panel);
-      border:1px solid #ffd8e1;
-      border-radius:var(--radius);
-      overflow:hidden;
-      box-shadow:var(--shadow);
+      background:var(--panel);border:1px solid #ffd8e1;border-radius:var(--radius);
+      overflow:hidden;box-shadow:var(--shadow);
     }
     .thumb{aspect-ratio:16/10;background:#fce6eb center/cover no-repeat;}
     .card-body{padding:14px;}
@@ -148,4 +120,75 @@
 
     /* フッター */
     footer{
-      padding:40px 18px;
+      padding:40px 18px;text-align:center;color:#a26b6b;font-size:.9rem;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ナビ -->
+  <div class="nav">
+    <div class="nav-wrap">
+      <div class="logo">🇹🇼 Taiwan Trip 11/15–17</div>
+      <div style="flex:1"></div>
+      <a href="#plan">日程</a>
+      <a href="#spots">スポット</a>
+      <a href="#tips">メモ</a>
+    </div>
+  </div>
+
+  <!-- ヒーロー -->
+  <header class="hero">
+    <div class="hero-inner">
+      <span class="chip">🍜 美食さんぽ旅</span>
+      <h1>台北&九份 2泊3日 しおり</h1>
+      <p class="lead">11/15 夜到着 → 夜市、小籠包モーニング、九份で夕景。移動リンク・地図・費用メモをひとまとめに。</p>
+      <div class="cta">
+        <a class="btn" href="#plan">日程を見る</a>
+        <a class="btn btn-ghost" href="#spots">おすすめスポット</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- 日程 -->
+  <section id="plan">
+    <div class="sec-title">SCHEDULE</div>
+    <div class="h2">旅のスケジュール</div>
+
+    <div class="timeline">
+      <div class="tl">
+        <span class="dot"></span>
+        <div class="tl-card">
+          <strong>1日目｜台北到着 → 夜市</strong>
+          <div class="tags"><span class="tag">士林夜市</span><span class="tag">胡椒餅</span><span class="tag">小籠包</span></div>
+          <p>20:00 台北着 → ホテル → 士林夜市で食べ歩き。友だち希望：ほろほろ肉系小籠包を最優先で。</p>
+        </div>
+      </div>
+
+      <div class="tl">
+        <span class="dot"></span>
+        <div class="tl-card">
+          <strong>2日目｜九份へ日帰り</strong>
+          <div class="tags"><span class="tag">赤提灯</span><span class="tag">阿妹茶樓</span><span class="tag">夕景</span></div>
+          <p>午後〜夕方に九份。台北→瑞芳（電車）→バス／タクシーで九份老街。</p>
+        </div>
+      </div>
+
+      <div class="tl">
+        <span class="dot"></span>
+        <div class="tl-card">
+          <strong>3日目｜帰国前モーニング</strong>
+          <div class="tags"><span class="tag">鼎泰豊</span><span class="tag">空港へ</span></div>
+          <p>朝は小籠包モーニング。時間次第でお土産スポットに立寄り。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- スポット -->
+  <section id="spots">
+    <div class="sec-title">SPOTS</div>
+    <div class="h2">行きたい場所リスト</div>
+
+    <div class="grid">
+      <div class="card"><div class="thumb"></div><div class="card-body"><h3>鼎泰豊（小籠包）</h3><p>朝・昼どち
