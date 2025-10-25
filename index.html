@@ -8,231 +8,144 @@
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=Noto+Sans+JP:wght@300;400;700&display=swap" rel="stylesheet">
   <style>
     :root{
-      --bg:#0f1220;           /* 背景 */
-      --panel:#15182a;        /* カード背景 */
-      --glass:rgba(255,255,255,.08);
-      --brand:#ff7e4f;        /* アクセント */
-      --brand-2:#ffd36e;      /* セカンド */
-      --text:#e9ecf1;         /* 文字 */
-      --muted:#a7afc3;
-      --ring:rgba(255,126,79,.35);
-      --radius:18px;
-      --shadow:0 10px 30px rgba(0,0,0,.35);
+      --bg:#fff5f6;             /* 全体背景：ほんのりピンク */
+      --panel:#ffeef1;          /* カード背景：白寄りのピンク */
+      --accent:#f6a5a9;         /* ピンクアクセント */
+      --accent-2:#fbd1d6;       /* サブアクセント */
+      --text:#4a3a3a;           /* 本文 */
+      --muted:#876c6c;
+      --shadow:0 8px 18px rgba(240,100,130,0.15);
+      --radius:16px;
     }
-    *{box-sizing:border-box}
-    html,body{margin:0;background:radial-gradient(1200px 900px at 80% -10%, #2a2f55 0%, #15182a 45%, #0f1220 100%); color:var(--text);}
-    body{font-family:"Outfit","Noto Sans JP",system-ui, -apple-system, sans-serif; line-height:1.7; letter-spacing:.02em}
+
+    *{box-sizing:border-box;margin:0;padding:0;}
+    html,body{
+      background:var(--bg);
+      color:var(--text);
+      font-family:"Noto Sans JP","Outfit",sans-serif;
+      line-height:1.7;
+      letter-spacing:.02em;
+    }
 
     /* ナビ */
     .nav{
-      position:sticky; top:0; z-index:50; backdrop-filter:saturate(1.5) blur(10px);
-      background:linear-gradient(to bottom, rgba(15,18,32,.85), rgba(15,18,32,.55));
-      border-bottom:1px solid rgba(255,255,255,.06);
+      position:sticky;top:0;z-index:50;
+      background:rgba(255,255,255,0.75);
+      backdrop-filter:blur(12px);
+      border-bottom:1px solid rgba(0,0,0,0.05);
+      box-shadow:0 2px 6px rgba(255,182,193,0.15);
     }
-    .nav-wrap{max-width:1080px;margin:auto;display:flex;gap:14px;align-items:center;padding:12px 18px}
-    .logo{font-weight:700;letter-spacing:.06em}
-    .spacer{flex:1}
-    .nav a{color:var(--muted);text-decoration:none;font-size:.95rem;padding:8px 12px;border-radius:10px}
-    .nav a:hover{color:var(--text);background:var(--glass)}
+    .nav-wrap{
+      max-width:1080px;margin:auto;
+      display:flex;align-items:center;gap:14px;
+      padding:12px 18px;
+    }
+    .logo{font-weight:700;color:#d66c85;letter-spacing:.04em;}
+    .nav a{
+      color:var(--muted);
+      text-decoration:none;
+      font-size:.95rem;
+      padding:8px 12px;
+      border-radius:10px;
+    }
+    .nav a:hover{
+      color:#d66c85;
+      background:rgba(255,192,203,0.25);
+    }
 
     /* ヒーロー */
     .hero{
-      max-width:1080px; margin:32px auto 18px; padding:26px 18px;
+      max-width:1080px;margin:40px auto 18px;padding:26px 18px;
     }
     .hero-inner{
-      position:relative; overflow:hidden; border-radius:calc(var(--radius) + 6px);
-      background:
-        radial-gradient(600px 300px at 10% -20%, rgba(255,211,110,.25), transparent 60%),
-        radial-gradient(800px 500px at 120% 10%, rgba(255,126,79,.18), transparent 60%),
-        linear-gradient(135deg, #1a1f36 0%, #121423 100%);
-      border:1px solid rgba(255,255,255,.07);
+      border-radius:calc(var(--radius) + 4px);
+      background:linear-gradient(145deg,#ffeef1 0%,#fff9fa 100%);
+      border:1px solid #ffd8e1;
       box-shadow:var(--shadow);
+      padding:40px 30px;
     }
-    .hero-grid{display:grid;grid-template-columns:1.2fr .9fr;gap:24px;padding:34px}
-    @media (max-width:860px){.hero-grid{grid-template-columns:1fr;}}
-    .chip{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.09); padding:8px 12px;border-radius:999px;color:var(--brand-2);font-weight:600}
-    h1{font-size:clamp(28px,5vw,42px);line-height:1.2;margin:14px 0 8px}
-    .lead{color:var(--muted);max-width:52ch}
-    .cta{display:flex;gap:12px;margin-top:18px;flex-wrap:wrap}
+    .chip{
+      display:inline-flex;align-items:center;
+      background:#fbd1d6;color:#b14a5e;
+      border-radius:999px;
+      padding:6px 12px;
+      font-weight:600;
+      margin-bottom:10px;
+    }
+    h1{
+      color:#d66c85;
+      font-size:clamp(26px,5vw,38px);
+      margin:6px 0 10px;
+    }
+    .lead{color:#704c4c;max-width:50ch;}
+    .cta{display:flex;gap:10px;margin-top:18px;flex-wrap:wrap;}
     .btn{
-      background:linear-gradient(135deg,var(--brand),#ff996a);
-      color:#1b120d; font-weight:800; border:none; padding:12px 18px; border-radius:12px;
-      text-decoration:none; box-shadow:0 8px 20px var(--ring);
+      background:#f6a5a9;
+      color:#fff;
+      border:none;
+      padding:10px 18px;
+      border-radius:10px;
+      text-decoration:none;
+      font-weight:700;
+      box-shadow:0 5px 12px rgba(240,100,130,0.3);
     }
-    .btn:hover{transform:translateY(-1px)}
-    .btn-ghost{background:rgba(255,255,255,.08); color:var(--text); border:1px solid rgba(255,255,255,.12)}
-    .hero-card{
-      background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.1); border-radius:16px; padding:16px; display:grid; gap:10px
-    }
-    .row{display:flex;align-items:center;gap:10px;color:var(--text)}
-    .row small{color:var(--muted)}
-    .map{
-      border-radius:12px; overflow:hidden; border:1px solid rgba(255,255,255,.08); aspect-ratio:16/10; background:#0d0f1b;
+    .btn:hover{background:#f97b89;}
+    .btn-ghost{
+      background:transparent;
+      border:1px solid #f6a5a9;
+      color:#d66c85;
     }
 
-    /* セクション共通 */
-    section{max-width:1080px;margin:24px auto;padding:0 18px}
-    .sec-title{font-size:1.2rem;letter-spacing:.06em;color:var(--brand-2);margin:22px 0 8px}
-    .h2{font-size:clamp(22px,3.4vw,30px);margin:2px 0 14px}
+    /* セクション */
+    section{max-width:1080px;margin:40px auto;padding:0 18px;}
+    .sec-title{color:#d66c85;font-weight:700;margin-bottom:4px;}
+    .h2{font-size:1.4rem;margin-bottom:18px;}
 
     /* タイムライン */
-    .timeline{position:relative;margin:18px 0 6px}
-    .tl{position:relative;padding-left:28px;margin:16px 0}
-    .tl:before{content:"";position:absolute;left:10px;top:0;bottom:-6px;width:2px;background:linear-gradient(var(--brand), transparent)}
-    .dot{position:absolute;left:2px;top:4px;width:16px;height:16px;border-radius:999px;background:var(--brand);box-shadow:0 0 0 6px rgba(255,126,79,.15)}
-    .tl-card{
-      background:var(--panel); border:1px solid rgba(255,255,255,.08); border-radius:14px; padding:14px 14px 12px;
-      box-shadow:var(--shadow)
+    .timeline{position:relative;margin:18px 0;}
+    .tl{position:relative;padding-left:26px;margin:16px 0;}
+    .tl:before{
+      content:"";position:absolute;left:8px;top:0;bottom:-6px;
+      width:2px;background:linear-gradient(#f6a5a9,transparent);
     }
-    .tags{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}
-    .tag{font-size:.8rem;padding:4px 10px;border-radius:999px;background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.1); color:var(--muted)}
+    .dot{
+      position:absolute;left:0;top:4px;
+      width:14px;height:14px;border-radius:999px;
+      background:#f6a5a9;
+      box-shadow:0 0 0 6px rgba(246,165,169,0.15);
+    }
+    .tl-card{
+      background:var(--panel);
+      border:1px solid #ffd8e1;
+      border-radius:var(--radius);
+      padding:16px;
+      box-shadow:var(--shadow);
+    }
+    .tags{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px;}
+    .tag{
+      font-size:.8rem;
+      padding:4px 10px;
+      border-radius:999px;
+      background:#fff;
+      border:1px solid #fbd1d6;
+      color:#b14a5e;
+    }
 
     /* カードグリッド */
-    .grid{display:grid;gap:16px;grid-template-columns:repeat(3,1fr)}
-    @media (max-width:980px){.grid{grid-template-columns:repeat(2,1fr)}}
-    @media (max-width:640px){.grid{grid-template-columns:1fr}}
+    .grid{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));}
     .card{
-      background:var(--panel); border:1px solid rgba(255,255,255,.08); border-radius:16px; overflow:hidden; box-shadow:var(--shadow)
+      background:var(--panel);
+      border:1px solid #ffd8e1;
+      border-radius:var(--radius);
+      overflow:hidden;
+      box-shadow:var(--shadow);
     }
-    .thumb{aspect-ratio:16/10;background:#0d0f1b url('images/hero.jpg') center/cover no-repeat}
-    .card-body{padding:14px}
-    .card h3{margin:.2rem 0 .4rem;font-size:1.05rem}
-    .card p{margin:.2rem 0;color:var(--muted)}
-    .card a{color:var(--brand-2);text-decoration:none}
+    .thumb{aspect-ratio:16/10;background:#fce6eb center/cover no-repeat;}
+    .card-body{padding:14px;}
+    .card h3{margin:.3rem 0;color:#d66c85;}
+    .card p{margin:.3rem 0;color:var(--muted);}
+    .card a{color:#d66c85;text-decoration:none;font-weight:600;}
 
     /* フッター */
-    footer{padding:44px 18px;color:var(--muted);text-align:center}
-    .foot-inner{max-width:1080px;margin:auto;border-top:1px solid rgba(255,255,255,.08);padding-top:20px}
-  </style>
-</head>
-<body>
-
-  <!-- ナビ -->
-  <div class="nav">
-    <div class="nav-wrap">
-      <div class="logo">🇹🇼 Taiwan Trip 11/15–17</div>
-      <div class="spacer"></div>
-      <a href="#plan">日程</a>
-      <a href="#spots">スポット</a>
-      <a href="#tips">メモ</a>
-    </div>
-  </div>
-
-  <!-- ヒーロー -->
-  <header class="hero">
-    <div class="hero-inner">
-      <div class="hero-grid">
-        <div>
-          <span class="chip">🍜 美食さんぽ旅</span>
-          <h1>台北&九份 2泊3日 しおり</h1>
-          <p class="lead">11/15 夜到着 → 夜市、小籠包モーニング、九份で夕景。移動リンク・地図・費用メモをひとまとめに。</p>
-          <div class="cta">
-            <a class="btn" href="#plan">日程を見る</a>
-            <a class="btn btn-ghost" target="_blank" href="https://maps.app.goo.gl/">Googleマップを開く</a>
-          </div>
-        </div>
-        <div class="hero-card">
-          <div class="row">📍 <strong>ホテル</strong> <small>台北駅エリア（仮）</small></div>
-          <div class="row">🕒 <strong>期間</strong> <small>2025/11/15–17</small></div>
-          <div class="row">💸 <strong>予算メモ</strong> <small>1日あたり上限 ¥10,000</small></div>
-          <div class="map">
-            <!-- 画像を置いたら差し替え：/images/map.jpg -->
-          </div>
-        </div>
-      </div>
-    </div>
-  </header>
-
-  <!-- 日程 -->
-  <section id="plan">
-    <div class="sec-title">SCHEDULE</div>
-    <div class="h2">旅のスケジュール</div>
-
-    <div class="timeline">
-      <div class="tl">
-        <span class="dot"></span>
-        <div class="tl-card">
-          <strong>1日目｜台北到着 → 夜市</strong>
-          <div class="tags">
-            <span class="tag">士林夜市</span><span class="tag">胡椒餅</span><span class="tag">小籠包</span>
-          </div>
-          <p>20:00 台北着 → ホテル → 士林夜市で食べ歩き。友だち希望：ほろほろ肉系小籠包を最優先で。</p>
-          <p><a href="https://maps.app.goo.gl/" target="_blank">士林夜市（マップ）</a></p>
-        </div>
-      </div>
-
-      <div class="tl">
-        <span class="dot"></span>
-        <div class="tl-card">
-          <strong>2日目｜九份へ日帰り</strong>
-          <div class="tags"><span class="tag">赤提灯</span><span class="tag">阿妹茶樓</span><span class="tag">夕景</span></div>
-          <p>午後〜夕方に九份。台北→瑞芳（電車）→バス／タクシーで九份老街。</p>
-          <p><a href="https://maps.app.goo.gl/" target="_blank">九份老街（マップ）</a></p>
-        </div>
-      </div>
-
-      <div class="tl">
-        <span class="dot"></span>
-        <div class="tl-card">
-          <strong>3日目｜帰国前モーニング</strong>
-          <div class="tags"><span class="tag">鼎泰豊</span><span class="tag">空港へ</span></div>
-          <p>朝は小籠包モーニング。時間次第でお土産スポットに立寄り。</p>
-          <p><a href="https://maps.app.goo.gl/" target="_blank">鼎泰豊（本店）</a></p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- スポット -->
-  <section id="spots">
-    <div class="sec-title">SPOTS</div>
-    <div class="h2">行きたい場所リスト</div>
-
-    <div class="grid">
-      <div class="card">
-        <div class="thumb" style="background-image:url('images/xiaolongbao.jpg')"></div>
-        <div class="card-body">
-          <h3>鼎泰豊（小籠包）</h3>
-          <p>朝・昼どちらでもOK。混雑は早め回避。</p>
-          <a target="_blank" href="https://maps.app.goo.gl/">マップで開く →</a>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="thumb" style="background-image:url('images/jiufen.jpg')"></div>
-        <div class="card-body">
-          <h3>九份老街</h3>
-          <p>夕暮れ〜夜景がベスト。雨具あると安心。</p>
-          <a target="_blank" href="https://maps.app.goo.gl/">マップで開く →</a>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="thumb" style="background-image:url('images/nightmarket.jpg')"></div>
-        <div class="card-body">
-          <h3>士林夜市</h3>
-          <p>胡椒餅・からあげ・ジュース系をつまみ歩き。</p>
-          <a target="_blank" href="https://maps.app.goo.gl/">マップで開く →</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- メモ -->
-  <section id="tips">
-    <div class="sec-title">NOTES</div>
-    <div class="h2">持ち物 & ルール</div>
-    <div class="grid">
-      <div class="card"><div class="card-body"><h3>お金</h3><p>1日上限 <strong>¥10,000</strong>。屋台は現金多め。交通はIC/現金どちらもOK。</p></div></div>
-      <div class="card"><div class="card-body"><h3>通信</h3><p>eSIM 3日分 or 空港SIM。QRを事前保存しておくと楽。</p></div></div>
-      <div class="card"><div class="card-body"><h3>雑メモ</h3><p>夜市は22:00過ぎても賑やか。朝の鼎泰豊は並び少なめ。</p></div></div>
-    </div>
-  </section>
-
-  <footer>
-    <div class="foot-inner">
-      <small>© 2025 Taiwan Trip / kokoromairudo-beep</small>
-    </div>
-  </footer>
-</body>
-</html>
+    footer{
+      padding:40px 18px;
